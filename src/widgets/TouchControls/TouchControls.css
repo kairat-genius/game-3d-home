@@ -1,0 +1,71 @@
+/* TouchControls.css */
+
+/* Основной контейнер для управления */
+.touch-controls {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    touch-action: none;
+}
+
+/* Левая панель с кнопками для движения */
+.control-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Правая панель с кнопкой для движения вправо */
+.control-bottom {
+    display: flex;
+    align-items: center;
+}
+
+/* Стили для каждой кнопки */
+.control-btn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    border-radius: 50%;
+    margin: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: grid;
+    place-items: center;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    line-height: 1;
+    padding: 0;
+}
+
+/* Эффект при нажатии на кнопку */
+.control-btn:active {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: scale(0.95);
+}
+
+/* Кнопки на правой панели (вправо) */
+.control-bottom .control-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* При наведении изменяем фон кнопки */
+.control-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+@media (max-width: 769px) {
+    .touch-controls {
+        transform: none;
+    }
+
+}

@@ -1,0 +1,53 @@
+.detail-home-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+}
+
+.detail-home-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.detail-home-modal h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.detail-home-modal  p {
+    font-size: 16px;
+    color: #555;
+}
+
+
+.detail-home-modal button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: background 0.2s ease, transform 0.1s ease;
+    background-color: green;
+    color: white;
+}
+
+
+.detail-home-modal button:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+}

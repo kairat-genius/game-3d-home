@@ -1,17 +1,36 @@
-import { useGLTF } from '@react-three/drei';
-import {RigidBody} from "@react-three/rapier";
-import {MAP_SIZE} from "../../shared/settings.js";
+import { useLoader } from '@react-three/fiber';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
+import { RigidBody } from '@react-three/rapier';
+import { useSelector } from "react-redux";
+import {useGLTF} from "@react-three/drei";
 
 export function Background() {
-    const { scene } = useGLTF('/assets/background/scene.gltf');
+    const mainBuildingLevel = useSelector((state) => state.mainBuilding.level);
+
+    const materials = useLoader(MTLLoader, '/assets/background/leto/Karta_leto.mtl');
+    const obj = useLoader(OBJLoader, '/assets/background/leto/Karta_leto.obj', (loader) => {
+        materials.preload();
+        loader.setMaterials(materials);
+    });
+
+    const { scene } = useGLTF("/assets/background/zima/sneg.gltf");
+
     return (
         <RigidBody type="fixed" colliders="trimesh">
-            <primitive
-                object={scene}
-                position={[0, 0, 0]}
-                scale={[MAP_SIZE/2, MAP_SIZE/2, MAP_SIZE/2]}
-            />
+            {mainBuildingLevel === 4 ? (
+                <primitive
+                    object={scene}
+                    position={[0, 1, 0]}
+                    scale={1}
+                />
+            ) : (
+                <primitive
+                    object={obj}
+                    position={[0, 1, 0]}
+                    scale={1}
+                />
+            )}
         </RigidBody>
     );
 }
-

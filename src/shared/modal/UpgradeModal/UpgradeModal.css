@@ -1,0 +1,113 @@
+.upgrade-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+}
+
+.upgrade-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.upgrade-modal.open .modal-content {
+    transform: translateY(0);
+}
+
+.upgrade-modal h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.upgrade-modal p {
+    font-size: 16px;
+    color: #555;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 12px 0;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.modal-buttons button:disabled {
+    background-color: #ccc!important;
+    color: #666!important;
+    cursor: not-allowed;
+}
+
+.modal-buttons button:first-child {
+    background-color: #d9534f;
+    color: white;
+}
+
+
+
+.modal-buttons button:first-child:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+}
+
+.modal-buttons button:last-child {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-buttons button:last-child:hover {
+    background-color: #4cae4c;
+    transform: scale(1.05);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s ease, transform 0.2s ease;
+    outline: none;
+}
+
+.close-btn:hover {
+    color: #000;
+    transform: scale(1.2);
+    outline: none;
+
+}
